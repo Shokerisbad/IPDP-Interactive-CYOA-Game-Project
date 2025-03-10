@@ -1,0 +1,50 @@
+{
+  "start": {
+    "text": "You are in a dark hallway. There is a locked door and a small chest.",
+    "choices": [
+      {
+        "text": "Open the chest",
+        "next": "chest_room"
+      },
+      {
+        "text": "Try to open the door",
+        "next": "locked_door"
+      }
+    ]
+  },
+  "chest_room": {
+    "text": "You found a Golden Key inside the chest!",
+    "item": "Golden Key",
+    "choices": [
+      {
+        "text": "Go back to the hallway",
+        "next": "start"
+      }
+    ]
+  },
+  "locked_door": {
+    "text": "The door is locked. You need a Golden Key to open it.",
+    "requires": "Golden Key",
+    "consume": "Golden Key",
+    "choices": [
+      {
+        "text": "Use the key",
+        "next": "open_door"
+      },
+      {
+        "text": "Go back",
+        "next": "start"
+      }
+    ]
+  },
+  "open_door": {
+    "text": "The door is open_door. You need a Golden Key to open it.",
+    "requires": "Golden Key",
+    "consume": "Golden Key",
+    "choices": [
+      { "text": "Use the key", "next": "open_door" },
+      { "text": "Go back", "next" : "start"}
+    ]}
+}
+
+
