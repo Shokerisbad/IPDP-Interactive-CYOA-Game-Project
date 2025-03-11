@@ -1,0 +1,29 @@
+.gameContainer {
+    position: relative;
+    bottom: 0; /* Distance from bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Centers horizontally */
+    background-image: url("./textBox.png");
+}
+
+
+.startContainer {
+    background-image: url("./textBox.png");
+    justify-content: center;
+    height: 90vh;
+    margin: 0;
+}
+
+.inventory-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px; /* Adjust as needed */
+    min-height: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    position: relative; /* Ensure it's positioned correctly */
+    bottom: 0;
+}
