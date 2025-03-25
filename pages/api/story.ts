@@ -5,10 +5,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const { node } = req.query;
 
-    // Get absolute path to story.json
     const storyPath = path.join(process.cwd(), "data", "story.json");
 
-    // Debugging: Log the path to make sure it's correct
     console.log("Looking for story.json at:", storyPath);
 
     // Check if file exists
