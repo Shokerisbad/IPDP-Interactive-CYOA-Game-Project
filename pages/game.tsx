@@ -29,6 +29,9 @@ export default function Game() {
             if (data.consume) {
                 setInventory((prev) => prev.filter((item) => item !== data.consume));
             }
+            if(data.requires){
+                if (data.requires == true) {}
+            }
         } catch (err) {
             console.error(err);
             setError(err.message);
