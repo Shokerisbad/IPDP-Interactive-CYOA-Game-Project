@@ -11,6 +11,7 @@ export default function Game() {
         const savedInventory = JSON.parse(localStorage  .getItem("inventory")) || [];
         setInventory(savedInventory);
     }, []);
+
     useEffect(() => { //only starts when inventory changes to save it in local storage
         localStorage.setItem("inventory", JSON.stringify(inventory));
     }, [inventory]);
@@ -22,7 +23,15 @@ export default function Game() {
                 throw new Error(`Failed to load story node: ${node}`);
             }
             const data = await res.json();
+
+            if(data.text.length > 254) {
+                insertNewlines(data.text);
+                console.log(data.text);
+            }
             setStoryNode(data);
+
+
+
             if (data.item) {
                 setInventory((prev) => [...new Set([...prev, data.item])]);
             }
@@ -30,7 +39,9 @@ export default function Game() {
                 setInventory((prev) => prev.filter((item) => item !== data.consume));
             }
             if(data.requires){
-                if (data.requires == true) {}
+                if (data.requires == true) {
+                    storyNode.index = data.requires; //daca se intampla asta ducem la un event cu acelasi nume ca itemul in care zicem ca nu are acel item
+                }
             }
         } catch (err) {
             console.error(err);
@@ -68,4 +79,9 @@ export default function Game() {
 
     )
         ;
+}
+
+
+function insertNewlines(str) {
+    return str.replace(/(.{1,254})(\s|$)/g, "$1<br />");
 }
