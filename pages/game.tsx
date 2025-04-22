@@ -5,10 +5,11 @@ export default function Game() {
     const [storyNode, setStoryNode] = useState(null);
     const [inventory, setInventory] = useState([]);
     const [error, setError] = useState(null);
-
-    useEffect(() => { //starts as soon as the page loads
+    //TO DO
+    //ADD TO EFFECT saveData to save current data to playerData.json and then it gets updated in the database
+    useEffect(() => { //starts as    soon as the page loads
         fetchStory('start');
-        const savedInventory = JSON.parse(localStorage  .getItem("inventory")) || [];
+        const savedInventory = JSON.parse(localStorage.getItem("inventory")) || [];
         setInventory(savedInventory);
     }, []);
 
@@ -24,12 +25,11 @@ export default function Game() {
             }
             const data = await res.json();
 
-            if(data.text.length > 254) {
+            if (data.text.length > 254) {
                 insertNewlines(data.text);
                 console.log(data.text);
             }
             setStoryNode(data);
-
 
 
             if (data.item) {
@@ -38,29 +38,51 @@ export default function Game() {
             if (data.consume) {
                 setInventory((prev) => prev.filter((item) => item !== data.consume));
             }
-            if(data.requires){
-                if (data.requires == true) {
-                    storyNode.index = data.requires; //daca se intampla asta ducem la un event cu acelasi nume ca itemul in care zicem ca nu are acel item
-                }
-            }
         } catch (err) {
             console.error(err);
             setError(err.message);
         }
     };
 
+    function insertNewlines(str) {
+        return str.replace(/(.{1,254})(\s|$)/g, "$1<br />");
+    }
+
+
     if (error) return <p style={{color: 'red'}}>Error: {error}</p>;
     if (!storyNode) return <p>Loading...</p>;
+
+    const shouldDisableChoice = (choice, inventory) => {
+        return choice.requires && !inventory.includes(choice.requires);
+    };
+
+
+    const isDisabled = shouldDisableChoice(storyNode.choices, inventory);
+    console.log(isDisabled);
 
     return (
         <div>
             <div className={styles.gameContainer} style={{textAlign: 'center', padding: '50px'}}>
+               <div className={styles.textContainer} style={{padding: '50px'}}>
                 <p>{storyNode.text}</p>
-                {storyNode.choices.map((choice, index) => (
-                    <button key={index} onClick={() => fetchStory(choice.next)} style={{margin: '5px'}}>
-                        {choice.text}
-                    </button>
-                ))}
+               </div>
+                <div className={styles.buttonsContainer} style={{padding: '50px'}}>
+                    {storyNode && storyNode.choices && storyNode.choices.map((choice, index) => {
+                        const isDisabled = shouldDisableChoice(choice, inventory);
+
+                        return (
+                            <button
+                                key={index}
+                                onClick={() => fetchStory(choice.next)}
+                                disabled={isDisabled}
+                                style={{ margin: '5px' }}
+                            >
+                                {choice.text}
+                                {isDisabled ? ` (Requires: ${choice.requires})` : ''}
+                            </button>
+                        );
+                    })}
+                </div>
             </div>
             <div className={styles.inventoryContainer}
                  style={{marginTop: "20px", padding: "10px", border: "1px solid black"}}>
@@ -82,6 +104,3 @@ export default function Game() {
 }
 
 
-function insertNewlines(str) {
-    return str.replace(/(.{1,254})(\s|$)/g, "$1<br />");
-}
