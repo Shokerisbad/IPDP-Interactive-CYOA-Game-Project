@@ -51,16 +51,6 @@ export default function Game() {
         fetchStory('start');
     };
 
-    //butonul de quit goleste inventarul, reseteaza istoria si te duce la inceputul jocului
-    const quit = () =>{
-        if(confirm("Are you sure you want to quit?")){
-            setInventory([]);
-            localStorage.removeItem("inventory");
-            setHistory(["start"]);
-            fetchStory('start');
-        }
-    };
-
     return (
         <div>
             <nav className={styles.navigationBar} style={{textAlign: 'center'}}>
@@ -68,9 +58,7 @@ export default function Game() {
                     <div style={{position: 'fixed', top: '250px', left: '50px', fontSize: '15px'}}>
                         <li><a onClick={() => restart()}
                                style={{color: '#febe7e', textDecoration: 'none', cursor: 'pointer'}}>Restart</a></li>
-                        <li><a onClick={() => quit()}
-                               style={{color: '#febe7e', textDecoration: 'none', cursor: 'pointer'}}>Quit</a>
-                        </li>
+
                     </div>
                 </ul>
             </nav>
