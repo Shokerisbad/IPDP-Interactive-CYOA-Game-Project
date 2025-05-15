@@ -1,14 +1,17 @@
 import {useEffect, useState} from 'react';
 import styles from './styles.module.css'
+import storyData from "../data/story.json";
+
 
 export default function Game() {
     const [storyNode, setStoryNode] = useState(null);
     const [inventory, setInventory] = useState([]);
     const [error, setError] = useState(null);
+    const [history, setHistory] = useState<string[]>(["start"]);
 
     useEffect(() => { //starts as soon as the page loads
         fetchStory('start');
-        const savedInventory = JSON.parse(localStorage  .getItem("inventory")) || [];
+        const savedInventory = JSON.parse(localStorage.getItem("inventory")) || [];
         setInventory(savedInventory);
     }, []);
     useEffect(() => { //only starts when inventory changes to save it in local storage
@@ -41,8 +44,32 @@ export default function Game() {
     if (error) return <p style={{color: 'red'}}>Error: {error}</p>;
     if (!storyNode) return <p>Loading...</p>;
 
+    const currentStep = history[history.length - 1];
+    const storyPart = storyData[currentStep];
+
+    if (!storyPart) return <h2>The step does not exist in JSON</h2>;
+
+    //butonul de quit goleste inventarul, reseteaza istoria si te duce la inceputul jocului
+    const quit = () =>{
+        if(confirm("Are you sure you want to quit?")){
+            setInventory([]);
+            localStorage.removeItem("inventory");
+            setHistory(["start"]);
+            fetchStory('start');
+        }
+    };
+
     return (
         <div>
+            <nav className={styles.navigationBar} style={{textAlign: 'center'}}>
+                <ul style={{listStyleType: 'none', padding: '0px'}}>
+                    <div style={{position: 'fixed', top: '250px', left: '50px', fontSize: '15px'}}>
+                        <li><a onClick={() => quit()}
+                               style={{color: '#febe7e', textDecoration: 'none', cursor: 'pointer'}}>Quit</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
             <div className={styles.gameContainer} style={{textAlign: 'center', padding: '50px'}}>
                 <p>{storyNode.text}</p>
                 {storyNode.choices.map((choice, index) => (
@@ -64,8 +91,8 @@ export default function Game() {
                     <p>Empty</p>
                 )}
             </div>
+            <footer className={styles.footer} style={{textAlign: 'center', padding: '5px'}}>&copy; Proiect IPDP</footer>
         </div>
 
-    )
-        ;
+    );
 }
