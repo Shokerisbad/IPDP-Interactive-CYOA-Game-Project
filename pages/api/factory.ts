@@ -10,7 +10,23 @@ class StoryNode {
     }
 }
 
-class ItemNode extends StoryNode {
+class useItemNode extends StoryNode {
+    item: string;
+    consume: string;
+    constructor(
+        id: string,
+        text: string,
+        consume: string,
+        item: string,
+        choices: { text: string; next: string;requires:string;}[]
+    ) {
+        super(id, text,choices);
+       this.consume = consume;
+       this.item = item;
+    }
+}
+
+class getItemNode extends StoryNode {
     item: string;
 
     constructor(id: string, text: string, choices: { text: string; next: string }[], item: string) {
@@ -33,8 +49,18 @@ class StoryFactory {
         return new StoryNode(id, text, choices);
     }
 
-    static createItemNode(id: string, text: string, choices: { text: string; next: string }[], item: string) {
-        return new ItemNode(id, text, choices, item);
+    static createGetItemNode(id: string, text: string, choices: { text: string; next: string }[], item: string) {
+        return new getItemNode(id, text, choices, item);
+    }
+
+    static createUseItemNode(
+        id: string,
+        text: string,
+        consume: string,
+        item: string,
+        choices: { text: string; next: string; requires:string}[]
+    ) {
+        return new useItemNode(id, text,consume,item, choices);
     }
 
     static createShopNode(id: string, text: string, choices: { text: string; next: string }[], itemsForSale: string[]) {
@@ -42,4 +68,4 @@ class StoryFactory {
     }
 }
 
-export { StoryNode, ItemNode, ShopNode, StoryFactory };
+export {StoryNode, getItemNode, ShopNode, StoryFactory};

@@ -1,9 +1,16 @@
 .gameContainer {
+    display: flex;
     position: relative;
     bottom: 0; /* Distance from bottom */
     left: 50%;
     transform: translateX(-50%); /* Centers horizontally */
     background-image: url("./textBox.png");
+}
+.textContainer{
+    display: flex;
+}
+.buttonContainer {
+    display: flex;
 }
 
 
