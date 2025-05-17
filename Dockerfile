@@ -1,6 +1,7 @@
 FROM node:24
 COPY . ./project
 WORKDIR ./project
-CMD npm install next@latest react@latest react-dom@latest
-CMD npm run build
-CMD npm start
+RUN npm install
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "start"]
