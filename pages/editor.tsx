@@ -152,6 +152,18 @@ export default function Editor() {
                     value={newChoice.next}
                     onChange={(e) => setNewChoice({ ...newChoice, next: e.target.value })}
                 />
+
+                { newNode.type ==="item" && (
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Required Item Name"
+                            value={newChoice.requires}
+                            onChange={(e) => setNewChoice({ ...newChoice, requires: e.target.value })}
+                        />
+                    </div>
+                )}
+
                 {newNode.type === "useItem" && (
                     <div>
                         <input
