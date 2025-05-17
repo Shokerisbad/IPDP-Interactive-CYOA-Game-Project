@@ -7,11 +7,8 @@ export default function Game() {
     const [storyNode, setStoryNode] = useState(null);
     const [inventory, setInventory] = useState([]);
     const [error, setError] = useState(null);
-
-       //TO DO
-    //ADD TO EFFECT saveData to save current data to playerData.json and then it gets updated in the database
-    useEffect(() => { //starts as    soon as the page loads
     const [history, setHistory] = useState<string[]>(["start"]);
+
 
     useEffect(() => { //starts as soon as the page loads
         fetchStory('start');
