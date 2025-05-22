@@ -26,8 +26,25 @@ export default function Home() {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async(e: FormEvent) => {
         e.preventDefault();
+        const endpoint = isLogin ? '/api/login' : '/api/signup';
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+        if(!response.ok){
+            alert(result.message || 'Unknown error');
+            return;
+        }
+        alert (result.message);
+
+
         if (isLogin) {
             console.log('Login:', {
                 email: formData.email,
