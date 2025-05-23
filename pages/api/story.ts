@@ -16,7 +16,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     }
 
     try {
-        // Read and parse the JSON file
+        //read and parse the JSON file
         const story = JSON.parse(fs.readFileSync(storyPath, "utf8"));
 
         if (!node || typeof node !== "string" || !story[node]) {

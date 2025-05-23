@@ -7,12 +7,13 @@ export default function Editor() {
         id: "",
         text: "",
         type: "default",
-        choices: [] as { text: string; next: string; consume;string }[],
+        choices: [] as { text: string; next: string; requires: string}[],
         item: "",
-        itemsForSale: [] as string[],
+        consume: "",
+            itemsForSale: [] as string[],
     });
 
-    const [newChoice, setNewChoice] = useState({ text: "", next: "" });
+    const [newChoice, setNewChoice] = useState({ text: "", next: "" ,requires: ""});
 
     // Add a choice to the current node
     const addChoice = () => {
@@ -32,15 +33,18 @@ export default function Editor() {
 
         let node: StoryNode;
         if (newNode.type === "item") {
-            node = StoryFactory.createItemNode(newNode.id, newNode.text, newNode.choices, newNode.item);
+            node = StoryFactory.createGetItemNode(newNode.id, newNode.text, newNode.choices, newNode.item);
         } else if (newNode.type === "shop") {
             node = StoryFactory.createShopNode(newNode.id, newNode.text, newNode.choices, newNode.itemsForSale);
-        } else {
+        }else if (newNode.type === "useItem") {
+            node = StoryFactory.createUseItemNode(newNode.id, newNode.text,newNode.consume,newNode.item,newNode.choices);
+        }
+         else {
             node = StoryFactory.createBasicNode(newNode.id, newNode.text, newNode.choices);
         }
 
         setNodes([...nodes, node]);
-        setNewNode({ id: "", text: "", type: "default", choices: [], item: "", itemsForSale: [] }); // Reset form
+        setNewNode({ id: "", text: "", type: "default", choices: [], item: "", consume:"", itemsForSale: []}); // Reset form
     };
 
 
@@ -83,6 +87,7 @@ export default function Editor() {
                     <option value="default">Default</option>
                     <option value="item">Item</option>
                     <option value="shop">Shop</option>
+                    <option value="useItem">UseItem</option>
                 </select>
             </div>
 
@@ -94,6 +99,27 @@ export default function Editor() {
                         placeholder="Item Name"
                         value={newNode.item}
                         onChange={(e) => setNewNode({ ...newNode, item: e.target.value })}
+                    />
+                </div>
+            )}
+
+            {newNode.type === "useItem" && (
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Item Name If Player Gets"
+                        value={newNode.item}
+                        onChange={(e) => setNewNode({ ...newNode, item: e.target.value })}
+                    />
+                </div>
+            )}
+            {newNode.type === "useItem" && (
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Consumed Item Name"
+                        value={newNode.consume}
+                        onChange={(e) => setNewNode({ ...newNode, consume: e.target.value })}
                     />
                 </div>
             )}
@@ -126,6 +152,28 @@ export default function Editor() {
                     value={newChoice.next}
                     onChange={(e) => setNewChoice({ ...newChoice, next: e.target.value })}
                 />
+
+                { newNode.type ==="item" && (
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Required Item Name"
+                            value={newChoice.requires}
+                            onChange={(e) => setNewChoice({ ...newChoice, requires: e.target.value })}
+                        />
+                    </div>
+                )}
+
+                {newNode.type === "useItem" && (
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Required Item Name"
+                            value={newChoice.requires}
+                            onChange={(e) => setNewChoice({ ...newChoice, requires: e.target.value })}
+                        />
+                    </div>
+                )}
                 <button onClick={addChoice}>Add Choice</button>
             </div>
 
