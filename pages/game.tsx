@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './styles.module.css'
 import storyData from "../data/story.json";
 
@@ -30,8 +30,9 @@ export default function Game() {
             const data = await res.json();
 
             if (data.text.length > 254) {
-                insertNewlines(data.text);
+                data.text =  insertNewlines(data.text);
                 console.log(data.text);
+
             }
             setStoryNode(data);
 
@@ -49,7 +50,7 @@ export default function Game() {
     };
 
     function insertNewlines(str) {
-        return str.replace(/(.{1,254})(\s|$)/g, "$1<br />");
+        return str.replace(/(.{1,90})(\s|$)/g, "$1<br />");
     }
 
 
@@ -93,9 +94,16 @@ export default function Game() {
                 </ul>
             </nav>
             <div className={styles.gameContainer} style={{textAlign: 'center', padding: '50px'}}>
-               <div className={styles.textContainer} style={{padding: '50px'}}>
-                <p>{storyNode.text}</p>
-               </div>
+                <div className={styles.textContainer} style={{ padding: '50px' }}>
+                    <p>
+                        {storyNode && storyNode.text.split('<br />').map((line, index, array) => (
+                            <React.Fragment key={index}>
+                                {line}
+                                {index < array.length - 1 && <br />}
+                            </React.Fragment>
+                        ))}
+                    </p>
+                </div>
                 <div className={styles.buttonsContainer} style={{padding: '50px'}}>
                     {storyNode && storyNode.choices && storyNode.choices.map((choice, index) => {
                         const isDisabled = shouldDisableChoice(choice, inventory);
@@ -116,7 +124,7 @@ export default function Game() {
             </div>
             <div className={styles.inventoryContainer}
                  style={{marginTop: "20px", padding: "10px", border: "1px solid black"}}>
-                <h2>Inventory</h2>
+                <h2>Journal</h2>
                 {inventory.length > 0 ? ( //if inventory lenght is not 0, show the items
                     <ul>
                         {inventory.map((item, index) => (

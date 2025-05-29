@@ -1,50 +1,1233 @@
 {
   "start": {
-    "text": "You are in a dark hallway. There is a locked door and a small chest.",
+    "id": "start",
+    "text": "Welcome to the world of Exandria, a place not quite unlike earth at first glance, but a deeper look will soon reveal, that things aren't quite so, for there is magic in this realm, and it is quite abundant. A lot can be talked about in this realm, but our story focuses on a port town called Islebury. That will soon be the focus of intrigue.",
     "choices": [
       {
-        "text": "Open the chest",
-        "next": "chest_room"
-      },
-      {
-        "text": "Try to open the door",
-        "next": "locked_door"
+        "text": "Go to Islebury",
+        "next": "intro_1",
+        "requires": ""
       }
     ]
   },
-  "chest_room": {
-    "text": "You found a Golden Key inside the chest!",
-    "item": "Golden Key",
+  "intro_1": {
+    "id": "intro_1",
+    "text": "Ah.... Islebury. I can smell the progress from here.\nYou can see a port town, that is expanding, there are lines of tents outside the proper city, one could say.\nIt is not surrounded by walls, not even wooden ones, for it was but a small port a few months ago.\nBarely worthy to be called a town. But then everything changed when the capital of The Republic of Tal'dorei, close to the town, got burned down by a dragon.\nThings are calmer now but everyone remembers the incident, the world itself is scarred.\nPeople migrated, with their entire city burned down a dragon holding it hostage, wherever they could.\nTrade still happened, a bit weary of the place now, but things were still happening in the world.\nAnd so Islebury could provide, a town close enough to Emon to reroute the trade routes and the people, but also far enough to not have permanent dread hanging over it, and so the small port town became slightly bigger and expanding.",
     "choices": [
       {
-        "text": "Go back to the hallway",
+        "text": "Continue",
+        "next": "intro_2",
+        "requires": ""
+      }
+    ]
+  },
+  "intro_2": {
+    "id": "intro_2",
+    "text": "And in such a place full of people, new and old. There's always adventure to be had, things to discover, and coin to earn.\nAnd that's what you're set here to do, maybe some heroics on the way, but that one, is up to you.",
+    "choices": [
+      {
+        "text": "Continue",
+        "next": "islebury_arrival_flavor",
+        "requires": ""
+      }
+    ]
+  },
+  "islebury_arrival_flavor": {
+    "id": "islebury_arrival_flavor",
+    "text": "As you step into the heart of Islebury, the sheer diversity of life is striking. Sturdy dwarves, their beards intricately braided, haggle over prices with sharp-witted human merchants. A pair of lithe elves, their expressions a mixture of weariness and resolve, discuss routes on a well-worn map, their pointed ears twitching at the cacophony. You spot a stoic, scaled Dragonborn carefully inspecting a crate of fish, their claws tapping thoughtfully. Even a few tieflings, their infernal heritage visible in their horns and tails, move through the crowd, some with an air of guardedness, others with surprising openness. The recent tragedy of Emon hangs in the air, a shadow in conversations, but beneath it is a palpable thrum of resilience and the chaotic energy of a town bursting at its seams.",
+    "choices": [
+      {
+        "text": "Take it all in and proceed to the main crossroads.",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "islebury_crossroads": {
+    "id": "islebury_crossroads",
+    "text": "You stand at the bustling crossroads of Islebury. The scent of salt, fish, and sawdust mixes with exotic spices and the metallic tang of a nearby smithy. Voices in Common, Dwarvish, and even a smattering of Elvish and Halfling rise and fall. Where do you wish to begin?",
+    "choices": [
+      {
+        "text": "Visit the Mayor's office.",
+        "next": "mayor_office_approach",
+        "requires": ""
+      },
+      {
+        "text": "Head to the 'Salty Loaf' bakery.",
+        "next": "bakery_approach",
+        "requires": ""
+      },
+      {
+        "text": "Seek out the Captain of the Guard.",
+        "next": "guard_post_approach",
+        "requires": ""
+      },
+      {
+        "text": "Browse the 'Curio & Coin' pawnshop.",
+        "next": "pawnshop_approach",
+        "requires": ""
+      },
+      {
+        "text": "Visit the town's small library.",
+        "next": "library_approach",
+        "requires": ""
+      },
+      {
+        "text": "Wander the docks and observe.",
+        "next": "docks_initial_observation_hub",
+        "requires": ""
+      },
+      {
+        "text": "Explore the tent city on the outskirts.",
+        "next": "tent_city_exploration_1",
+        "requires": ""
+      }
+    ]
+  },
+  "tent_city_exploration_1": {
+    "id": "tent_city_exploration_1",
+    "text": "You wander towards the sprawling lines of tents that mark Islebury's rapid, somewhat desperate expansion. Here, the mood is more somber. Refugees from Emon and other strife-torn regions huddle around small fires, their faces etched with hardship. You hear snippets of tales of loss, of homes turned to ash by Thordak's fire, and of perilous journeys. Yet, there are also sparks of hope: children playing with makeshift toys, a halfling strumming a cheerful, if slightly out of tune, song on a lute, and the determined efforts of people trying to rebuild their lives from scratch. Occasionally, a cleric of Pelor in sun-yellow robes can be seen offering words of comfort or a minor healing touch.",
+    "choices": [
+      {
+        "text": "Listen for any specific rumors or pleas for help.",
+        "next": "tent_city_listen_rumors",
+        "requires": ""
+      },
+      {
+        "text": "Observe the daily struggles and resilience.",
+        "next": "tent_city_observe_struggles",
+        "requires": ""
+      },
+      {
+        "text": "Return to the main crossroads.",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "tent_city_listen_rumors": {
+    "id": "tent_city_listen_rumors",
+    "text": "You try to subtly listen in on conversations. Many are personal woes, but you do overhear a worried mother speaking of her son who took a 'guard job' with some newcomers down by the old pier and hasn't been seen for days. Another group speaks fearfully of 'strange whispers' on the wind at night, blaming them on uneasy spirits or lingering dragon-fear.",
+    "item": "Rumor: Missing Boy (Tent City Guard Job)",
+    "choices": [
+      {
+        "text": "Make a mental note of the missing son.",
+        "next": "tent_city_exploration_1",
+        "requires": ""
+      },
+      {
+        "text": "Dismiss the whispers as mere superstition.",
+        "next": "tent_city_exploration_1",
+        "requires": ""
+      }
+    ]
+  },
+  "tent_city_observe_struggles": {
+    "id": "tent_city_observe_struggles",
+    "text": "The resilience of the people is notable. You see a makeshift market where meager possessions are traded, and a group of dwarves attempting to organize a volunteer brigade to improve sanitation. The shadow of the Chroma Conclave's devastation is long, but the spirit of Tal'Dorei's people, in all their varied forms, endures.",
+    "choices": [
+      {
+        "text": "Return to the crossroads.",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "docks_initial_observation_hub": {
+    "id": "docks_initial_observation_hub",
+    "text": "The docks are a hive of activity and a melting pot of seafaring folk. Grizzled human sailors with faded anchor tattoos unload crates of salt-cured fish alongside sturdy half-orc stevedores. You see a finely dressed merchant – perhaps from a more established city like Westruun – arguing animatedly with a ship captain whose vessel flies the colors of a distant port, possibly from the Menagerie Coast. The air smells of brine, tar, and the occasional whiff of something more exotic, like rare spices or oiled leathers.",
+    "choices": [
+      {
+        "text": "Focus on the general cargo and trade.",
+        "next": "docks_observe_cargo",
+        "requires": ""
+      },
+      {
+        "text": "Look for any unusual individuals or clandestine meetings.",
+        "next": "docks_observe_day_1",
+        "requires": ""
+      },
+      {
+        "text": "Listen to the sailors' chatter at a nearby tavern.",
+        "next": "docks_tavern_chatter_1",
+        "requires": ""
+      },
+      {
+        "text": "Return to the crossroads.",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "docks_observe_cargo": {
+    "id": "docks_observe_cargo",
+    "text": "Most of the cargo seems legitimate: timber from the Verdant Expanse, dried foodstuffs, textiles, and various raw materials essential for a growing town. However, you do notice a few heavily guarded crates being moved with unusual haste onto a nondescript, swift-looking vessel. The guards are grim-faced and don't invite questions.",
+    "choices": [
+      {
+        "text": "Try to get a closer look at the guarded crates (Risky).",
+        "next": "docks_guarded_crates_closer_look",
+        "requires": ""
+      },
+      {
+        "text": "Make a note of the vessel and its guards.",
+        "next": "docks_initial_observation_hub",
+        "requires": ""
+      }
+    ]
+  },
+  "docks_guarded_crates_closer_look": {
+    "id": "docks_guarded_crates_closer_look",
+    "text": "As you try to approach, one of the guards, a burly half-orc with a nasty scar, steps in your way. 'Lost, friend? Best move along. This is private business.' His hand rests on the pommel of a wicked-looking scimitar.",
+    "choices": [
+      {
+        "text": "Apologize and back away.",
+        "next": "docks_initial_observation_hub"
+      },
+      {
+        "text": "Try to press for information (Charisma/Intimidation needed - not mechanically supported, leads to rebuff).",
+        "next": "docks_guarded_crates_rebuffed"
+      }
+    ]
+  },
+  "docks_guarded_crates_rebuffed": {
+    "id": "docks_guarded_crates_rebuffed",
+    "text": "Your attempts to glean more information are met with a stony silence and a more menacing glare. It's clear you won't get anything from these guards directly.",
+    "choices": [
+      {
+        "text": "Retreat and observe from a greater distance.",
+        "next": "docks_initial_observation_hub"
+      }
+    ]
+  },
+  "docks_tavern_chatter_1": {
+    "id": "docks_tavern_chatter_1",
+    "text": "You step into 'The Drenched Rat,' a dockside tavern teeming with sailors. The air is thick with the smell of cheap ale, pipe smoke, and sweat. Over the din, you hear a group of sailors from a merchant cog, The Sea Serpent, grumbling about 'ghost ships' and 'cursed waters' further out towards the Lucidian Ocean. One claims his cousin's ship was found adrift, crew vanished, with only strange, spiral markings left on the deck.",
+    "item": "Sailor's Tale: Ghost Ship with Spiral Markings",
+    "choices": [
+      {
+        "text": "Try to engage the sailors for more details.",
+        "next": "docks_tavern_engage_sailors",
+        "requires": ""
+      },
+      {
+        "text": "Order a drink and listen further.",
+        "next": "docks_tavern_chatter_2",
+        "requires": ""
+      },
+      {
+        "text": "Leave the tavern.",
+        "next": "docks_initial_observation_hub",
+        "requires": ""
+      }
+    ]
+  },
+  "docks_tavern_engage_sailors": {
+    "id": "docks_tavern_engage_sailors",
+    "text": "You approach the sailors, perhaps offering to buy a round. They're initially wary of a stranger, but a bit of coin or a shared drink loosens their tongues. They don't have many more concrete details, mostly second-hand accounts and drunken exaggerations, but the fear in their eyes when they speak of the spiral markings seems genuine. They also mention a brute of a minotaur seen on a dark ship recently, one that 'didn't sail right.'",
+    "item": "Reinforced Rumor: Minotaur on a Dark Ship",
+    "choices": [
+      {
+        "text": "Thank them and leave.",
+        "next": "docks_initial_observation_hub"
+      }
+    ]
+  },
+  "docks_tavern_chatter_2": {
+    "id": "docks_tavern_chatter_2",
+    "text": "You nurse a drink, listening. Another conversation drifts your way – two fishermen complaining about dwindling catches in certain areas, and how the waters there feel 'wrong' and unnaturally cold, even in summer. They blame everything from overfishing to 'sea witches' and 'deep things best left undisturbed.'",
+    "choices": [
+      {
+        "text": "Finish your drink and leave.",
+        "next": "docks_initial_observation_hub"
+      }
+    ]
+  },
+  "mayor_office_approach": {
+    "id": "mayor_office_approach",
+    "text": "The Mayor's 'office' is a large, well-appointed tent, a beacon of strained order amidst the chaos. Seredic Headstrong, a gnome with a sharp gaze and meticulously kept attire, looks up from a stack of parchments. 'Mayor of this... situation,' he states, his voice surprisingly resonant. 'Are you here seeking opportunity, or to add to my considerable list of headaches?'",
+    "choices": [
+      {
+        "text": "'Looking for honest work, Mayor.'",
+        "next": "mayor_discuss_work",
+        "requires": ""
+      },
+      {
+        "text": "'I have some concerns about strange happenings.'",
+        "next": "mayor_discuss_concerns_initial",
+        "requires": ""
+      },
+      {
+        "text": "'Just observing the town's leadership.'",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "mayor_discuss_work": {
+    "id": "mayor_discuss_work",
+    "text": "Mayor Headstrong: 'Work? We're practically drowning in it. Rebuilding efforts, infrastructure for the refugees, security... it's a constant battle. Most urgent for an outsider? Tools vanished from the new construction site by the old pier. Good Tal'Dorei steel, not easily replaced. Look into it discreetly?'",
+    "choices": [
+      {
+        "text": "'I'll investigate the missing tools.'",
+        "next": "mayor_assigns_tool_quest_node",
+        "requires": ""
+      },
+      {
+        "text": "'Not quite what I had in mind.'",
+        "next": "mayor_other_work_options_node",
+        "requires": ""
+      }
+    ]
+  },
+  "mayor_assigns_tool_quest_node": {
+    "id": "mayor_assigns_tool_quest_node",
+    "item": "Quest: The Mayor's Missing Tools",
+    "text": "'Excellent! The site is past the 'Salty Loaf' bakery, towards the water. Ask for Foreman Borin, a dwarf who doesn't suffer fools. Tell him I sent you. And be subtle – we don't need a panic over a few missing hammers, unless it's more than that.'",
+    "choices": [
+      {
+        "text": "Head to the construction site now.",
+        "next": "construction_site_approach",
+        "requires": ""
+      },
+      {
+        "text": "Thank the mayor and explore elsewhere first.",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "mayor_other_work_options_node": {
+    "id": "mayor_other_work_options_node",
+    "text": "The mayor sighs, tapping a finger on his desk. 'Most other 'adventuring' work here is self-started. Keep your ear to the ground – the whispers in a refugee town carry far. Or perhaps Captain Stonecleaver of the Guard has something more... direct. His resources are stretched thin.'",
+    "choices": [
+      {
+        "text": "'Thank you, Mayor.'",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "mayor_discuss_concerns_initial": {
+    "id": "mayor_discuss_concerns_initial",
+    "text": "Mayor Headstrong raises a perfectly sculpted eyebrow. 'Strange things? My dear adventurer, this town was but a sleepy fishing spot months ago. Now, it's a refugee hub teetering on the edge of the wilds, with the ashes of Emon still cooling nearby. 'Strange' is our new normal. You'll have to be more specific.'",
+    "choices": [
+      {
+        "text": "Mention unsettling whispers and a sense of dread.",
+        "next": "mayor_reacts_to_whispers_node",
+        "requires": ""
+      },
+      {
+        "text": "(Requires: Discovered Cultists' Sewer Map) 'I found this map in the sewers, suggesting cult activity.'",
+        "next": "mayor_reacts_to_cult_sewer_info_node",
+        "requires": "Discovery: Cultists' Sewer Map (to Docks)"
+      },
+      {
+        "text": "(Requires: Rumor of Missing Boy) 'I heard a boy went missing after taking a guard job near the old pier.'",
+        "next": "mayor_reacts_to_missing_boy",
+        "requires": "Rumor: Missing Boy (Tent City Guard Job)"
+      },
+      {
+        "text": "'Never mind. Perhaps I was mistaken.'",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "mayor_reacts_to_missing_boy": {
+    "id": "mayor_reacts_to_missing_boy",
+    "consume": "Rumor: Missing Boy (Tent City Guard Job)",
+    "text": "The Mayor's expression tightens. 'A missing boy? There have been too many unaccounted for since the influx. Near the old pier, you say? That area has become a den for... less reputable elements. I'll have the Guard make inquiries, but their hands are full. If you learn more, bring it to Captain Stonecleaver directly.'",
+    "choices": [
+      {
+        "text": "'I will, Mayor.'",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "mayor_reacts_to_whispers_node":{
+    "id": "mayor_reacts_to_whispers_node",
+    "text": "'Whispers and dread? Friend, after what the Chroma Conclave did to Emon, half the town is probably suffering from ill nerves and bad dreams. If you find anything concrete – not just feelings – bring it to Captain Stonecleaver. He handles the actual disturbances.'",
+    "choices": [
+      {
+        "text": "Okay, I'll keep that in mind.",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "mayor_reacts_to_cult_sewer_info_node":{
+    "id": "mayor_reacts_to_cult_sewer_info_node",
+    "text": "The Mayor leans forward, his eyes glinting. 'A map? From the sewers? Show me.' He examines it. 'By the Lawbearer's light... this is more than just vagrants. This points to organized illicit activity, perhaps even one of those dark cults that prey on the desperate. Captain Stonecleaver must be informed immediately! Will you take this to him? Speed is paramount.'",
+    "choices": [
+      {
+        "text": "Agree to inform Captain Stonecleaver about the sewer cult and map.",
+        "next": "mayor_tasks_player_inform_captain_sewers",
+        "consume": "Discovery: Cultists' Sewer Map (to Docks)"
+      },
+      {
+        "text": "Say you'll handle it yourself for now.",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "mayor_tasks_player_inform_captain_sewers": {
+    "id": "mayor_tasks_player_inform_captain_sewers",
+    "item": "Mayor's Request: Inform Captain of Sewer Cult",
+    "text": "'Good. Go to Captain Stonecleaver. Tell him what you found, show him the map if he needs convincing. Emphasize the urgency. The safety of Islebury could depend on it. I'll see about organizing a more thorough sweep once he's aware.'",
+    "choices": [
+      {
+        "text": "Go directly to the Captain of the Guard.",
+        "next": "guard_post_approach",
+        "requires": ""
+      },
+      {
+        "text": "Okay.",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "bakery_approach": {
+    "id": "bakery_approach",
+    "text": "The 'Salty Loaf' bakery is an oasis of warmth and the comforting aroma of baking bread, a stark contrast to the salty air outside. Gorgig Kegback, a stout dwarf with flour dusting his braided beard and a generally cheerful demeanor, nods at you from behind a counter laden with various loaves and pastries. 'Welcome, traveler! Best bread this side of the Stormcrest Mountains, and that's a fact, not a boast! What can I get for ye?'",
+    "choices": [
+      {
+        "text": "'Heard any interesting news or rumors lately, Master Dwarf?'",
+        "next": "bakery_gossip_1",
+        "requires": ""
+      },
+      {
+        "text": "'A loaf of your best bread, please.'",
+        "next": "bakery_buy_bread_node",
+        "requires": ""
+      },
+      {
+        "text": "Leave.",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "bakery_buy_bread_node": {
+    "id": "bakery_buy_bread_node",
+    "item": "Warm Loaf of Bread",
+    "text": "Gorgig grins, his eyes twinkling as he hands you a hefty, warm loaf wrapped in clean cloth. 'That'll be two copper pieces. Good for the road, or for soakin' up stew! Pleasure doin' business!' You now have some delicious bread.",
+    "choices": [
+      {
+        "text": "Ask for news now that you're a customer.",
+        "next": "bakery_gossip_1",
+        "requires": ""
+      },
+      {
+        "text": "Thank him and leave.",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "bakery_gossip_1": {
+    "id": "bakery_gossip_1",
+    "text": "Gorgig wipes his hands on his apron and leans over the counter conspiratorially. 'News, eh? Always news in a place like this, especially with all the new faces. Old Man Hemlock down by the docks – bit touched in the head, some say, but a keen fisherman in his day – swears he saw a boat moving with no sails or oars the other night. Said it glided like a water snake, silent as the grave. Most say he's been at the seaweed brew again, but he seemed genuinely spooked when he came in for his morning roll.'",
+    "choices": [
+      {
+        "text": "'A boat moving on its own? Interesting. Anything else catch your attention?'",
+        "next": "bakery_gossip_2_sewer_hint",
+        "requires": ""
+      },
+      {
+        "text": "'Thanks for the tip, Master Kegback.'",
+        "next": "bakery_approach",
+        "requires": ""
+      }
+    ]
+  },
+  "bakery_gossip_2_sewer_hint": {
+    "id": "bakery_gossip_2_sewer_hint",
+    "item": "Rumor: Hooded Figures & Sewer Smell (from Baker)",
+    "text": "Gorgig lowers his voice further, glancing around the nearly empty shop. 'Well, there's been some odd folk about lately. Hooded types, keep to themselves. They've been buying up strange amounts of dried herbs from Elara down the street – not the cooking kind, mind you. And there's a nasty smell sometimes, real foul, coming from that old sewer grate in the alley next door. Keeps the rats away from my stores, I suppose, but it ain't pleasant. Not natural.'",
+    "choices": [
+      {
+        "text": "'Hooded types and a strange sewer smell? I might look into that grate.'",
+        "next": "sewer_alley_approach_from_bakery",
+        "requires": ""
+      },
+      {
+        "text": "'Good to know. Thanks, Gorgig.'",
+        "next": "bakery_approach",
+        "requires": ""
+      }
+    ]
+  },
+  "sewer_alley_approach_from_bakery": {
+    "id": "sewer_alley_approach_from_bakery",
+    "text": "You find the narrow, refuse-strewn alley Gorgig mentioned. It's damp, and the smell is indeed unpleasant – a thick, cloying mix of refuse, stagnant water, and something else, something musky and vaguely threatening. A heavy iron grate, green with verdigris, covers a dark opening into what is clearly a sewer access point. It looks like it could be pried open with some effort, or a sturdy tool.",
+    "choices": [
+      {
+        "text": "Try to pry open the sewer grate.",
+        "next": "sewer_grate_open_attempt",
+        "requires": ""
+      },
+      {
+        "text": "Leave it for now.",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "sewer_grate_open_attempt": {
+    "id": "sewer_grate_open_attempt",
+    "text": "You find some purchase on the edge of the grate or use a nearby discarded plank as a lever. With a grunt of effort and a screech of rusted metal, you manage to slide the heavy grate aside. A dark, foul-smelling tunnel yawns before you. The sounds of dripping water and distant, unsettling skittering echo from within.",
+    "choices": [
+      {
+        "text": "Enter the sewers.",
+        "next": "sewer_entry_gnoll_encounter",
+        "requires": ""
+      },
+      {
+        "text": "Close the grate and leave. This seems like a bad idea.",
+        "next": "sewer_alley_approach_from_bakery",
+        "requires": ""
+      }
+    ]
+  },
+  "sewer_entry_gnoll_encounter": {
+    "id": "sewer_entry_gnoll_encounter",
+    "text": "You descend into the dimly lit sewer tunnel. The air is thick with an almost unbearable stench of waste and something else... something wild and predatory. As you venture a short way in, your eyes adjusting to the gloom, a hunched, canine figure with matted fur, cruel claws, and hate-filled glowing eyes snarls from the shadows ahead – a gnoll, likely scavenging or perhaps guarding something.",
+    "choices": [
+      {
+        "text": "Fight the gnoll!",
+        "next": "sewer_gnoll_fight_engaged",
+        "requires": ""
+      },
+      {
+        "text": "Attempt to sneak past it in the darkness.",
+        "next": "sewer_gnoll_sneak_fail_fight",
+        "requires": ""
+      },
+      {
+        "text": "This is too much. Slowly back out of the sewer.",
+        "next": "sewer_grate_open_attempt",
+        "requires": ""
+      }
+    ]
+  },
+  "sewer_gnoll_fight_engaged": {
+    "id": "sewer_gnoll_fight_engaged",
+    "text": "The gnoll lets out a guttural cackle and lunges with a crude, filth-encrusted spear aimed at your chest! You ready your weapon (or fists) and engage the creature in the narrow, slippery confines of the sewer tunnel, the stench of its fetid breath washing over you.",
+    "choices": [
+      {
+        "text": "Press the attack with all your might!",
+        "next": "sewer_gnoll_defeated_node",
+        "requires": ""
+      }
+    ]
+  },
+  "sewer_gnoll_sneak_fail_fight": {
+    "id": "sewer_gnoll_sneak_fail_fight",
+    "text": "You try to move silently along the edge of the slimy tunnel, but a loose brick crumbles underfoot, sending a cascade of grit into the murky water. The gnoll's head snaps towards you, its ears perked, and its eyes fix on your position. It lets out a ferocious, slobbering growl and charges, its spear held low!",
+    "choices": [
+      {
+        "text": "No choice but to defend yourself!",
+        "next": "sewer_gnoll_defeated_node",
+        "requires": ""
+      }
+    ]
+  },
+  "sewer_gnoll_defeated_node": {
+    "id": "sewer_gnoll_defeated_node",
+    "item": "Memory: Defeated a Sewer Gnoll",
+    "text": "With a final, desperate yelp, the gnoll collapses to the sewer floor, its foul blood mixing with the grime. The immediate threat is gone, leaving only the echoing drip of water and your own ragged breathing. You notice the gnoll was wearing a crudely fashioned wooden symbol around its neck, smeared with something dark and oily.",
+    "choices": [
+      {
+        "text": "Examine the wooden symbol.",
+        "next": "sewer_examine_gnoll_symbol",
+        "requires": ""
+      },
+      {
+        "text": "Continue deeper into the sewers.",
+        "next": "sewer_explore_deeper_after_gnoll",
+        "requires": ""
+      },
+      {
+        "text": "Leave the sewers the way you came. Enough for now.",
+        "next": "sewer_grate_open_attempt",
+        "requires": ""
+      }
+    ]
+  },
+  "sewer_examine_gnoll_symbol": {
+    "id": "sewer_examine_gnoll_symbol",
+    "item": "Gnoll's Twisted Wooden Symbol",
+    "text": "You pick up the small, roughly carved wooden symbol. It depicts a spiraling tentacle or a stylized, crashing wave, but the craftsmanship is crude. It feels strangely cold to the touch and gives you a faint, prickling sense of unease, like a forgotten nightmare. You decide to keep it.",
+    "choices": [
+      {
+        "text": "Continue deeper into the sewers.",
+        "next": "sewer_explore_deeper_after_gnoll",
+        "requires": ""
+      },
+      {
+        "text": "Leave the sewers now that you have the symbol.",
+        "next": "sewer_grate_open_attempt",
+        "requires": ""
+      }
+    ]
+  },
+  "sewer_explore_deeper_after_gnoll": {
+    "id": "sewer_explore_deeper_after_gnoll",
+    "text": "You press on, the silence now more unnerving than the gnoll's snarls. The sewer tunnels are a confusing maze of brick and fetid water. After a few cautious turns, guided by a faint, flickering light, you find a small, makeshift shrine in a damp alcove. More of those strange spiral symbols are carved into the slimy walls. A few guttering tallow candles illuminate a small pile of what looks like fish bones, dark feathers, and a couple of tarnished copper coins. There's a crude map scratched into the grime on the floor, showing the sewer tunnels and a clear mark near the western docks.",
+    "choices": [
+      {
+        "text": "Study the map and try to memorize its details.",
+        "next": "sewer_study_shrine_map_node",
+        "requires": ""
+      },
+      {
+        "text": "Leave the shrine and exit the sewers. This place is getting creepier.",
+        "next": "sewer_grate_open_attempt",
+        "requires": ""
+      }
+    ]
+  },
+  "sewer_study_shrine_map_node": {
+    "id": "sewer_study_shrine_map_node",
+    "item": "Discovery: Cultists' Sewer Map (to Docks)",
+    "text": "You take a moment to study the crude map. It seems to indicate a hidden exit or meeting point near the western docks, possibly accessible through the sewer system or a hidden tunnel from there. It also highlights what appears to be a larger chamber or junction deeper within these sewer tunnels, marked with several more spiral symbols.",
+    "choices": [
+      {
+        "text": "(Requires: Gnoll's Symbol) 'This map and the symbol I found... they point to something organized and sinister.'",
+        "next": "islebury_crossroads",
+        "requires": "Gnoll's Twisted Wooden Symbol"
+      },
+      {
+        "text": "Try to find the larger chamber indicated on the map within the sewers.",
+        "next": "sewer_approach_larger_chamber",
+        "requires": ""
+      },
+      {
+        "text": "Remember the dock location and leave the sewers for now.",
+        "next": "sewer_grate_open_attempt",
+        "requires": ""
+      }
+    ]
+  },
+  "sewer_approach_larger_chamber": {
+    "id": "sewer_approach_larger_chamber",
+    "text": "Following the crude map's indication, you navigate through dripping tunnels to where the larger chamber should be. The air grows colder, and you begin to hear faint, rhythmic chanting sounds ahead, accompanied by the gentle lapping of water.",
+    "choices": [
+      {
+        "text": "Proceed cautiously and investigate the chanting.",
+        "next": "sewer_cultist_ritual_observe",
+        "requires": ""
+      },
+      {
+        "text": "This feels too dangerous to approach alone. Retreat for now.",
+        "next": "sewer_explore_deeper_after_gnoll",
+        "requires": ""
+      }
+    ]
+  },
+  "sewer_cultist_ritual_observe": {
+    "id": "sewer_cultist_ritual_observe",
+    "item": "Witnessed: Cultists' Dark Ritual in Sewers",
+    "text": "Peeking around a crumbling brick corner, you see a disturbing sight. A handful of cloaked figures are gathered in a wider section of the sewer, where a drain outlet opens into what might be a subterranean stream or cistern. They are chanting in a guttural, unsettling language around a crude stone altar adorned with more of the spiral symbols and lit by sickly green phosphorescent fungi. They seem to be performing some sort of ritual, though its exact purpose is unclear from this distance. They haven't spotted you.",
+    "choices": [
+      {
+        "text": "Try to disrupt the ritual or confront them.",
+        "next": "sewer_cultist_confrontation_outcome",
+        "requires": ""
+      },
+      {
+        "text": "Silently withdraw with this new, disturbing information.",
+        "next": "sewer_explore_deeper_after_gnoll",
+        "requires": ""
+      }
+    ]
+  },
+  "sewer_cultist_confrontation_outcome": {
+    "id": "sewer_cultist_confrontation_outcome",
+    "text": "You decide to act, perhaps shouting a challenge or launching a surprise attack. The cultists are startled but quickly draw rusted daggers and crude clubs, their eyes wide with fanaticism. The fight is chaotic in the dim, flickering light. You manage to overcome them, their numbers not compensating for their lack of skill, but not without taking a few blows. The chamber is now eerily silent, the ritual interrupted. There isn't much of value here other than more of their strange symbols and the lingering, cloying sense of dread.",
+    "choices": [
+      {
+        "text": "Leave the sewers, having dealt with this cell.",
+        "next": "sewer_grate_open_attempt",
+        "requires": ""
+      }
+    ],
+    "item": "Achievement: Disrupted Sewer Cult Ritual"
+  },
+  "guard_post_approach": {
+    "id": "guard_post_approach",
+    "text": "The guard post is a sturdy, newly constructed wooden building near the town's main thoroughfare, a hive of activity with guards coming and going, their armor scuffed, their faces weary. Inside, a tall human with a no-nonsense expression and a prominent scar above his left eyebrow, Captain Breo Stonecleaver, is barking orders to a subordinate. He spots you. 'Civilian! State your business. As you can see, we're busy maintaining what little order this town has.'",
+    "choices": [
+      {
+        "text": "'Looking for work, Captain. The kind that requires a strong arm or a keen eye.'",
+        "next": "guard_discuss_work",
+        "requires": ""
+      },
+      {
+        "text": "(Requires: Mayor's Request) 'The Mayor sent me. Urgent news about the sewers.'",
+        "next": "guard_receive_mayor_sewer_report",
+        "requires": "Mayor's Request: Inform Captain of Sewer Cult"
+      },
+      {
+        "text": "(Requires: Sighting of Minotaur) 'I have urgent information about dangerous activity at the docks!'",
+        "next": "guard_report_minotaur_direct",
+        "requires": "Sighting: Minotaur and Cultists at Docks"
+      },
+      {
+        "text": "(Requires: Torn Map to Hidden Cove) 'The Mayor suggested I show you this map I found.'",
+        "next": "guard_receives_cove_map",
+        "requires": "Discovery: Torn Map to a Hidden Cove"
+      },
+      {
+        "text": "'Just seeing how Islebury's finest are holding up. I'll leave you to it.'",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "guard_receives_cove_map": {
+    "id": "guard_receives_cove_map",
+    "text": "You present the torn map to Captain Stonecleaver. He unrolls it, his brow furrowed. 'A hidden cove, eh? Near the old lighthouse, by the looks of it. We've suspected smugglers have been using that area. This might be the proof we need for a proper raid. Good work bringing this to me. This could be significant.'",
+    "consume": "Discovery: Torn Map to a Hidden Cove",
+    "item": "Captain's Interest: Cove Map (Potential Smugglers)",
+    "choices": [
+      {
+        "text": "'Glad I could help, Captain.'",
+        "next": "islebury_crossroads"
+      },
+      {
+        "text": "Ask if he needs help investigating the cove.",
+        "next": "guard_cove_investigation_offer"
+      }
+    ]
+  },
+  "guard_cove_investigation_offer": {
+    "id": "guard_cove_investigation_offer",
+    "text": "Stonecleaver considers for a moment. 'We'll be stretched thin as it is. If you're willing, scouting out that cove – carefully, mind you – could be very useful. Report back anything you find. Don't engage unless you absolutely have to. There could be more than just smugglers involved.'",
+    "item": "Quest: Scout the Hidden Cove (for Captain)",
+    "choices": [
+      {
+        "text": "Accept the scouting mission.",
+        "next": "cove_travel_node"
+      },
+      {
+        "text": "'Perhaps another time, Captain.'",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "cove_travel_node": {
+    "id": "cove_travel_node",
+    "text": "You agree to scout the hidden cove. Following the directions from the torn map and perhaps some local guidance, you make your way along the rugged coastline, heading towards the old, disused lighthouse...",
+    "choices": [
+      {
+        "text": "Continue towards the cove.",
+        "next": "cove_arrival_node"
+      }
+    ]
+  },
+  "cove_arrival_node": {
+    "id": "cove_arrival_node",
+    "text": "The cove is well hidden, accessible only by a narrow, winding path down the cliffs or by sea. From a vantage point, you can see a small, secluded beach. There's a beached rowboat and signs of recent activity - footprints in the sand, and a dark cave entrance at the base of the cliff.",
+    "choices": [
+      {
+        "text": "Investigate the cave entrance.",
+        "next": "cove_cave_entrance_node"
+      },
+      {
+        "text": "Observe from hiding for a while longer.",
+        "next": "cove_observe_node"
+      },
+      {
+        "text": "This looks too dangerous. Report what you've seen so far.",
+        "next": "guard_post_approach"
+      }
+    ]
+  },
+  "guard_receive_mayor_sewer_report": {
+    "id": "guard_receive_mayor_sewer_report",
+    "text": "Stonecleaver's eyes narrow at the mention of the Mayor and the sewers. 'What is it?' You relay the information about the cult activity and the map. His hand instinctively goes to the hilt of his sword. 'A cult... and a map showing routes from the sewers to the docks? By the Platinum Dragon's scales, this is more organized than random thuggery.'",
+    "consume": "Mayor's Request: Inform Captain of Sewer Cult",
+    "choices": [
+      {
+        "text": "Continue explaining the dire situation.",
+        "next": "guard_acts_on_sewer_report"
+      }
+    ]
+  },
+  "guard_acts_on_sewer_report": {
+    "id": "guard_acts_on_sewer_report",
+    "item": "Confirmation: Captain Stonecleaver is Aware of Sewer Cult",
+    "text": "'This explains some of the strange disappearances and the unease in the lower districts. We'll need to raid those sewers, and soon, before whatever they're planning comes to pass. Thank you. Your information is vital. I'll need a bit to gather my men – we're stretched thin as it is. Is there anything else you can tell me about their numbers or specific defenses you encountered?'",
+    "choices": [
+      {
+        "text": "(Requires: Defeated Sewer Gnoll) 'I encountered a gnoll, seemed to be guarding an entrance. It wore a strange symbol.'",
+        "next": "guard_learns_about_gnoll",
+        "requires": "Memory: Defeated a Sewer Gnoll"
+      },
+      {
+        "text": "(Requires: Witnessed Cult Ritual) 'I saw a few cultists in a larger chamber, performing a ritual around an altar.'",
+        "next": "guard_learns_about_ritualists",
+        "requires": "Witnessed: Cultists' Dark Ritual in Sewers"
+      },
+      {
+        "text": "'That's all I know for certain right now.'",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "pawnshop_approach": {
+    "id": "pawnshop_approach",
+    "text": "The 'Curio & Coin' is a cramped, dusty shop, shelves overflowing with a bizarre assortment of items – from tarnished silver teapots to chipped porcelain dolls with unnervingly vacant stares, to what looks like a stuffed owlbear cub (poorly done). Behind a worn counter, a human with shifty eyes and a quiet, watchful demeanor, En, polishes a tarnished silver locket. 'Looking to buy? Or perhaps... sell something unfortunate?'",
+    "choices": [
+      {
+        "text": "'Just Browse. Anything unusual or particularly interesting come in lately?'",
+        "next": "pawnshop_unusual_items_query",
+        "requires": ""
+      },
+      {
+        "text": "(Requires: Gnoll's Symbol) 'What can you tell me about this symbol? Found it in a nasty place.'",
+        "next": "pawnshop_evaluates_symbol",
+        "requires": "Gnoll's Twisted Wooden Symbol"
+      },
+      {
+        "text": "Leave.",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "library_approach": {
+    "id": "library_approach",
+    "text": "Islebury's library is a small, surprisingly peaceful wooden building, its shelves filled with a mix of well-worn tomes and newer, donated scrolls. The scent of old parchment and dried herbs (used for preservation) hangs in the air. An elderly woman with a kind, intelligent smile and spectacles perched on her nose, Esther, looks up from a hefty book bound in what looks like dragon RUMORhide. 'Oh, hello dear. Welcome to our little sanctuary of knowledge. Are you looking for anything in particular, or just a quiet place to read away from the town's hubbub?'",
+    "choices": [
+      {
+        "text": "'I'm researching local legends, or anything about old gods or hidden cults.'",
+        "next": "library_research_cults_initial",
+        "requires": ""
+      },
+      {
+        "text": "(Requires: Gnoll's Symbol) 'Could you help me identify this symbol? I found it in a dark place.'",
+        "next": "library_identifies_symbol",
+        "requires": "Gnoll's Twisted Wooden Symbol"
+      },
+      {
+        "text": "(Requires: Book from Library) 'I'd like to return this book and perhaps look for more on 'The Drowner'.' ",
+        "next": "library_return_book_drowner_query",
+        "requires": "Book Found: 'Tides of Dread, Whispers of the Deep'",
+        "consume": "Book Found: 'Tides of Dread, Whispers of the Deep'"
+      },
+      {
+        "text": "'Just Browse, thank you.'",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  },
+  "library_return_book_drowner_query": {
+    "id": "library_return_book_drowner_query",
+    "text": "Esther accepts the book with a gentle smile. ''Tides of Dread' is a grim read, isn't it? As for more on 'The Drowner'... direct references are scarce, often purposefully obscured. However, there are oblique mentions in texts discussing the Betrayer Gods, particularly Zehir, and tales of Uk'otoa's influence often share thematic similarities. One must read between the lines, dear.'",
+    "item": "Lore: Drowner's Connection to Betrayer Gods/Uk'otoa Themes",
+    "choices": [
+      {
+        "text": "'Thank you, Esther, that's very insightful.'",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "docks_observe_day_1": {
+    "id": "docks_observe_day_1",
+    "text": "You spend some time wandering the bustling docks of Islebury. Sailors from a dozen lands shout in different tongues, merchants haggle loudly, and workers haul cargo under the watchful eyes of dockmasters. You notice the usual activity, but also a few furtive glances exchanged between rough-looking individuals near a less-used, somewhat dilapidated pier. Nothing concrete, but it piques your interest.",
+    "choices": [
+      {
+        "text": "Continue observing the docks carefully.",
+        "next": "docks_observe_day_2_nothing_yet",
+        "requires": ""
+      },
+      {
+        "text": "Decide to come back at night when it's less crowded.",
+        "next": "docks_prepare_night_stakeout",
+        "requires": ""
+      },
+      {
+        "text": "Return to the main dock area.",
+        "next": "docks_initial_observation_hub",
+        "requires": ""
+      }
+    ]
+  },
+  "docks_prepare_night_stakeout": {
+    "id": "docks_prepare_night_stakeout",
+    "text": "You decide the best time to see any illicit activity is under the cover of darkness. As dusk settles, painting the sky in hues of orange and purple over the Lucidian Ocean, you find a shadowed spot between stacked crates, offering a good view of the quieter piers. The moon is a mere sliver, casting long, eerie shadows. Now, you wait.",
+    "choices": [
+      {
+        "text": "Wait and watch as night deepens.",
+        "next": "docks_night_minotaur_sighting",
+        "requires": ""
+      },
+      {
+        "text": "Actually, this feels too exposed or dangerous alone. Maybe get help or more info first.",
+        "next": "docks_initial_observation_hub",
+        "requires": ""
+      }
+    ]
+  },
+  "docks_night_minotaur_sighting": {
+    "id": "docks_night_minotaur_sighting",
+    "item": "Sighting: Minotaur and Cultists at Docks",
+    "text": "Hours pass. The usual dock sounds fade, replaced by the gentle lapping of waves against pylons and the distant, mournful cries of night birds. Just as you're about to give up, chilled and stiff, you see movement near the old, dilapidated pier. Several cloaked figures are silently loading heavy-looking crates onto a small, dark-sailed cutter that seems to sit unusually low in the water. And then you see him - a hulking, minotaur figure, horns silhouetted against the faint starlight, directing them with guttural commands. He moves with a strange, jerky gait, and his eyes seem to glow faintly in the dark.",
+    "choices": [
+      {
+        "text": "This is it! Confront the minotaur and the cultists!",
+        "next": "minotaur_confrontation_direct",
+        "requires": ""
+      },
+      {
+        "text": "This is too much for one person. Fall back and report to Captain Stonecleaver immediately.",
+        "next": "guard_post_approach",
+        "requires": ""
+      }
+    ]
+  },
+  "minotaur_confrontation_direct": {
+    "id": "minotaur_confrontation_direct",
+    "text": "You step out from the shadows, shouting a challenge or perhaps trying a more direct approach. The cloaked figures turn, surprised, drawing crude weapons – rusted scimitars and heavy clubs. The minotaur lets out a bellowing roar, a sound horrifyingly mixed with the gurgle of water, and charges towards you, its eyes blazing with an unnatural, sickly green light. It seems immensely strong and not entirely in control of its own actions. 'More... sacrifices... for the Deep One!' it groans, its voice like grinding stones.",
+    "choices": [
+      {
+        "text": "Fight the Minotaur and his cultists!",
+        "next": "minotaur_fight_resolution_player_wins",
+        "requires": ""
+      }
+    ]
+  },
+  "minotaur_fight_resolution_player_wins": {
+    "id": "minotaur_fight_resolution_player_wins",
+    "item": "Victory: Defeated the Mind-Controlled Minotaur",
+    "text": "The battle is fierce and desperate on the slick, dark pier. The cultists are frenzied, empowered by some dark fervor, and the minotaur is a terrifying force of nature, its movements erratic but devastatingly powerful. After a desperate struggle, you manage to strike down the minotaur. As it falls with a thunderous crash, the unnatural glow in its eyes fades, replaced by a brief flicker of confusion and perhaps even pain before it stills. The remaining cultists, seeing their champion defeated, either scatter into the night like frightened rats or are subdued by your prowess.",
+    "choices": [
+      {
+        "text": "Victory! The immediate threat is over.",
+        "next": "game_ending_minotaur_defeated_solo"
+      }
+    ]
+  },
+  "game_ending_minotaur_defeated_solo": {
+    "id": "game_ending_minotaur_defeated_solo",
+    "text": "With the minotaur defeated and its cultist handlers scattered, a strange, almost unnatural quiet falls over the docks. The oppressive whispers of the Drowner seem to have receded, for now. You've struck a significant blow against the encroaching darkness in Islebury. The town is safer thanks to your efforts. What you do next – report your victory to the Mayor, inform the Captain, or simply melt back into the shadows of this ever-growing port town – is up to you. (Congratulations! You've reached an ending.)",
+    "choices": [
+      {
+        "text": "Play again?",
         "next": "start"
       }
     ]
   },
-  "locked_door": {
-    "text": "The door is locked. You need a Golden Key to open it.",
-    "requires": "Golden Key",
-    "consume": "Golden Key",
+  "guard_report_minotaur_direct": {
+    "id": "guard_report_minotaur_direct",
+    "consume": "Sighting: Minotaur and Cultists at Docks",
+    "text": "You quickly and quietly withdraw from the docks, your heart pounding, and head straight for the Guard Post. You rouse a surprised Captain Stonecleaver, urgently explaining what you saw – the cloaked figures, the dark ship, and the terrifying minotaur. He's initially skeptical, a frown creasing his scarred face, but your earnestness and the specific details convince him. 'A minotaur? Leading cultists? By the gods... if this is true...'. He grabs his sword and begins to rally a group of guards. 'Show us where! We move now!'",
     "choices": [
       {
-        "text": "Use the key",
-        "next": "open_door"
-      },
+        "text": "Lead Captain Stonecleaver and the guards to the docks.",
+        "next": "minotaur_confrontation_with_guards"
+      }
+    ]
+  },
+  "minotaur_confrontation_with_guards": {
+    "id": "minotaur_confrontation_with_guards",
+    "text": "You lead the grim-faced guards back to the dilapidated pier. The minotaur and cultists are still there, though they seem close to finishing their loading and preparing to depart. 'Guards! For Tal'dorei and the Republic!' Stonecleaver shouts, his voice cutting through the night air, and the battle is joined! With the element of surprise largely on your side and the trained might of the guard, the cultists are quickly overwhelmed. The minotaur puts up a fierce, desperate fight, its roars echoing across the water, but surrounded and facing determined soldiers, it is eventually brought down.",
+    "choices": [
       {
-        "text": "Go back",
+        "text": "A decisive victory with the help of the guard!",
+        "next": "game_ending_minotaur_defeated_with_guards"
+      }
+    ]
+  },
+  "game_ending_minotaur_defeated_with_guards": {
+    "id": "game_ending_minotaur_defeated_with_guards",
+    "text": "Captain Stonecleaver claps you on the shoulder, his face grim but relieved in the aftermath. 'You did well, citizen. Very well. We've stopped... whatever this was. For tonight, at least. The Republic, and Islebury, owe you thanks.' The immediate threat of the Drowner's pawns has been dealt with, and the town can breathe a little easier under the watchful eyes of its protectors. (Congratulations! You've reached an ending.)",
+    "choices": [
+      {
+        "text": "Play again?",
         "next": "start"
       }
     ]
   },
-  "open_door": {
-    "text": "The door is open_door. You need a Golden Key to open it.",
-    "requires": "Golden Key",
-    "consume": "Golden Key",
+  "construction_site_approach": {
+    "id": "construction_site_approach",
+    "text": "You arrive at the new construction site near the old pier. The sounds of hammers, saws, and shouted instructions fill the air. Workers – a mix of humans, dwarves, and a few hardy halflings – are busy erecting new buildings. A harried-looking dwarf with a blueprint clutched in one hand, presumably Foreman Borin, is overseeing the placement of a large support beam.",
     "choices": [
-      { "text": "Use the key", "next": "open_door" },
-      { "text": "Go back", "next" : "start"}
-    ]}
+      {
+        "text": "(Requires Quest: The Mayor's Missing Tools) 'Foreman Borin? Mayor Headstrong sent me about some missing tools.'",
+        "next": "construction_site_discuss_tools",
+        "requires": "Quest: The Mayor's Missing Tools",
+        "consume": "Quest: The Mayor's Missing Tools"
+      },
+      {
+        "text": "Just look around the site.",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "construction_site_discuss_tools": {
+    "id": "construction_site_discuss_tools",
+    "item": "Clue: Tools Vanished Near Old Pier Shack",
+    "text": "Foreman Borin turns, wiping sweat from his brow with a flour-dusted forearm. 'The Mayor sent ya? Good. About time he took it seriously. Aye, tools been walkin' off. Good quality hammers, saws, even a heavy crowbar just vanished yestereve. Mostly from the temporary storage shack we set up near that derelict part of the old pier. Can't spare men to watch it day and night, not with this schedule.'",
+    "choices": [
+      {
+        "text": "Investigate the storage shack by the derelict pier.",
+        "next": "derelict_pier_shack_approach"
+      },
+      {
+        "text": "Thank Borin and return to town for now.",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "derelict_pier_shack_approach": {
+    "id": "derelict_pier_shack_approach",
+    "text": "The old pier is decaying, its timbers groaning with the tide, and the air is damp with sea spray and neglect. The storage shack is a dilapidated wooden structure, leaning precariously. The door hangs slightly ajar, creaking in the breeze.",
+    "choices": [
+      {
+        "text": "Enter the shack cautiously.",
+        "next": "derelict_pier_shack_inside"
+      },
+      {
+        "text": "This place looks unstable and unwelcoming. Report back or try something else.",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "derelict_pier_shack_inside": {
+    "id": "derelict_pier_shack_inside",
+    "text": "Inside, the shack is mostly empty, smelling of mildew, old fish, and something faintly metallic. You find some of the missing tools haphazardly discarded in a corner, as if dropped in a hurry. But there's also something else: a damp, partially torn piece of thick parchment. It looks like a crude map of the nearby coastline, clearly marking a hidden cove not far from an old, crumbling lighthouse.",
+    "item": "Discovery: Torn Map to a Hidden Cove",
+    "choices": [
+      {
+        "text": "Take the map and the recovered tools. Report back to Mayor Headstrong.",
+        "next": "report_to_mayor_about_tools_and_map"
+      },
+      {
+        "text": "This cove map is intriguing. Perhaps investigate it later yourself.",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "report_to_mayor_about_tools_and_map": {
+    "id": "report_to_mayor_about_tools_and_map",
+    "text": "You return to Mayor Headstrong's tent, presenting the recovered tools and the torn map. He is visibly pleased about the tools. 'Good work! Every hammer counts in a town growing this fast. As for this map... a hidden cove near the old lighthouse? That's... curious. Might be smugglers, or something worse given the times. Perhaps Captain Stonecleaver should see this. He deals with the more... direct threats.'",
+    "item": "Mayor's Thanks & Cove Map Concern",
+    "choices": [
+      {
+        "text": "(Requires Torn Map) Offer to show the map to Captain Stonecleaver yourself.",
+        "next": "guard_post_approach",
+        "requires": "Discovery: Torn Map to a Hidden Cove"
+      },
+      {
+        "text": "Leave the map with the Mayor for now and let him handle it.",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "guard_discuss_work": {
+    "id": "guard_discuss_work",
+    "text": "Captain Stonecleaver looks you up and down. 'Work? We always need more eyes and ears, especially ones that can handle themselves. Mostly, I need bodies for patrols, keeping the peace in the tent city, that sort of thing. But... there have been reports of increased boldness from some of the shadier elements near the docks at night. Smuggling, probably. Possibly worse. Unofficially, if you were to... observe... and report anything substantial, there might be a reward in it for you. And my gratitude, for what that's worth.'",
+    "choices": [
+      {
+        "text": "'I can be observant. I'll keep an eye on the docks at night.'",
+        "next": "guard_assigns_docks_surveillance",
+        "requires": ""
+      },
+      {
+        "text": "'Anything more official? Or perhaps a bounty on known troublemakers?'",
+        "next": "guard_no_official_tasks_yet",
+        "requires": ""
+      }
+    ]
+  },
+  "guard_assigns_docks_surveillance": {
+    "id": "guard_assigns_docks_surveillance",
+    "item": "Captain's Task: Night Watch on Docks",
+    "text": "'Good. Don't engage unless absolutely necessary – I don't have the men to bail out every hothead who picks a fight. And try not to get caught. Bring any concrete information back to me. The less official paperwork I have to file with the Republic bureaucrats, the better for everyone right now.'",
+    "choices": [
+      {
+        "text": "Head to the docks to prepare for a night's observation.",
+        "next": "docks_prepare_night_stakeout"
+      },
+      {
+        "text": "'Understood, Captain.'",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "guard_no_official_tasks_yet": {
+    "id": "guard_no_official_tasks_yet",
+    "text": "Captain Stonecleaver shakes his head. 'Not for someone walking in off the street, no offense. Islebury's got enough opportunists looking for a quick bit of coin. Prove yourself useful first, bring me something solid, and then we can talk official compensation.'",
+    "choices": [
+      {
+        "text": "Return to town.",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "guard_learns_about_gnoll": {
+    "id": "guard_learns_about_gnoll",
+    "text": "Captain Stonecleaver listens intently as you describe the gnoll. 'A gnoll in the city sewers? Vicious, filthy creatures. Good work taking it down. That might explain some of the missing livestock reports from the edge of the tent city, too. And it wore a symbol, you say? Interesting... or rather, alarming.'",
+    "choices": [
+      {
+        "text": "(Requires: Witnessed Cult Ritual) 'There's more, Captain. I saw the cultists themselves in a larger chamber.'",
+        "next": "guard_learns_about_ritualists",
+        "requires": "Witnessed: Cultists' Dark Ritual in Sewers"
+      },
+      {
+        "text": "'Glad the information is useful.'",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "guard_learns_about_ritualists": {
+    "id": "guard_learns_about_ritualists",
+    "text": "His face grows grimmer as you describe the ritual scene. 'This is worse than I thought. Not just scavengers, but organized worshippers of some dark power. We need to act fast before they take root. Your information has been invaluable. Islebury, and indeed the Republic, owes you.'",
+    "choices": [
+      {
+        "text": "Ask if there's anything else you can do to help prepare for the sewer raid.",
+        "next": "guard_final_thanks_sewer_plot"
+      },
+      {
+        "text": "Leave the Captain to gather his forces and prepare.",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "guard_final_thanks_sewer_plot": {
+    "id": "guard_final_thanks_sewer_plot",
+    "text": "'For now, you've done more than enough by bringing this to light and providing such detailed reconnaissance. We'll handle the sewer raid – it's a job for the Guard, and we have some veterans of the Emon campaign who know how to deal with subterranean threats. But keep your eyes open around town. If this cult is as entrenched as it seems, there may be other signs, other agents.'",
+    "choices": [
+      {
+        "text": "Understood, Captain. I'll remain vigilant.",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "pawnshop_unusual_items_query": {
+    "id": "pawnshop_unusual_items_query",
+    "text": "En polishes a tarnished silver locket with a practiced, almost tender motion. 'Unusual is our specialty, friend. Had a jumpy fellow in here a few days back, reeked of bilge water and desperation. Tried to sell a watersoaked captain's log. Claimed it was from a ship that hadn't been seen in these waters for years, one of those ghost stories sailors spin. Didn't offer him much – the pages were mostly ruined – and he got spooked and ran off. Shame. Might've been worth something to the right collector of maritime tragedies.'",
+    "choices": [
+      {
+        "text": "'A watersoaked captain's log? Did you get a look at the ship's name? Or the captain's?'",
+        "next": "pawnshop_log_details_revealed"
+      },
+      {
+        "text": "'Interesting. I'll keep that in mind.'",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "pawnshop_log_details_revealed": {
+    "id": "pawnshop_log_details_revealed",
+    "item": "Clue: Pawned Minotaur Captain's Log (Grogan)",
+    "text": "En squints, tapping a long finger to his chin. 'Didn't catch the name of the ship, no. Too water-damaged. But the captain... the log mentioned his name a few times in the legible bits. Grogan, or something like that. And it described him as a minotaur, if you can believe such a thing skippering a vessel. The log itself looked ancient in parts, but some sections seemed... recently waterlogged. Very odd. Smelled like the bottom of the ocean, that log did.'",
+    "choices": [
+      {
+        "text": "'A minotaur captain named Grogan? Thanks for the information, En.'",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "pawnshop_evaluates_symbol": {
+    "id": "pawnshop_evaluates_symbol",
+    "consume": "Gnoll's Twisted Wooden Symbol",
+    "text": "You show En the gnoll's crude wooden symbol. He recoils slightly, his usually neutral expression flickering with distaste. 'Ugh. Nasty bit of work, that. Seen similar things before, usually brought in by desperate sailors or those... unsavory types who meet in dark places and whisper to darker things. They talk of deep sea promises, power from below. Worthless as a trinket, mind you, but bad luck. If I were you, I'd get rid of it. Toss it in the deepest part of the harbor.' He doesn't offer any coin, only a palpable sense of unease.",
+    "item": "Pawnkeeper's Warning: Symbol of Deep Sea Cultists",
+    "choices": [
+      {
+        "text": "'Thanks for the insight, En. I'll be careful.'",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "library_research_cults_initial": {
+    "id": "library_research_cults_initial",
+    "text": "Esther's warm smile falters for a moment, a shadow passing through her kind eyes. 'Oh my. That's rather a specific and grim line of inquiry, dear. In times of upheaval, such as these, whispers of hidden cults and dark gods often resurface. Desperate people seek desperate answers. We have some general texts on regional folklore and the more... obscure histories of the Lucidian Ocean. There are always tales of older, deeper powers that sailors, in their fear and isolation, used to try and appease. Entities that slumber beneath the waves, whose influence could seep into the minds of the susceptible.'",
+    "choices": [
+      {
+        "text": "'Can you point me to any books on these 'deeper powers' or oceanic cults?'",
+        "next": "library_directs_to_drowner_lore"
+      },
+      {
+        "text": "'That's unsettling enough. Thank you for the information, Esther.'",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "library_directs_to_drowner_lore": {
+    "id": "library_directs_to_drowner_lore",
+    "item": "Book Found: 'Tides of Dread, Whispers of the Deep'",
+    "text": "Esther nods slowly and guides you to a dusty, somewhat neglected shelf in a quiet corner of the library. She pulls out a slim volume bound in what looks like treated sharkskin. 'This one, 'Tides of Dread, Whispers of the Deep,' is a collection of rather grim sailors' tales, superstitions, and warnings. It speaks of an entity known only as 'The Drowner,' an old god of crushing depths and creeping despair, imprisoned long ago by the forces of Light and Civilization. It's said its power can still leak out, twisting minds and promising terrible power to those who would listen to its watery whispers. It often mentions symbols... spirals, tentacles, things associated with the crushing pressure and darkness of the abyss.'",
+    "choices": [
+      {
+        "text": "'The Drowner... this is very helpful, Esther. May I study this book?'",
+        "next": "library_learned_of_the_drowner"
+      }
+    ]
+  },
+  "library_learned_of_the_drowner": {
+    "id": "library_learned_of_the_drowner",
+    "item": "Lore: The Drowner, Imprisoned Water God",
+    "text": "You spend some time with the unsettling book, its pages filled with fragmented accounts, mad ramblings, and dire warnings. You learn more about the terrifying entity known as The Drowner – an ancient being of oceanic dread, said to be imprisoned in a lightless trench miles beneath the waves. Its influence manifests as whispers that prey on greed, despair, and madness, promising power but delivering only servitude and mutation. The descriptions of its followers and their grotesque symbols are chillingly familiar if you've encountered any signs of them.",
+    "choices": [
+      {
+        "text": "Return to Islebury with this dire knowledge.",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "library_identifies_symbol": {
+    "id": "library_identifies_symbol",
+    "consume": "Gnoll's Twisted Wooden Symbol",
+    "item": "Librarian's ID: Symbol of 'The Drowner'",
+    "text": "You show Esther the crude wooden symbol taken from the gnoll. Her eyes widen, and she takes an involuntary step back, her hand going to her mouth. 'Oh... oh dear. That's... that's very similar to some of the more malevolent markings described in the darker maritime folklore. Symbols associated with... well, with entities one shouldn't even name, let alone seek out. They say such symbols are used by those who've been swayed by powers from the deep, often promising control or protection but delivering only madness and servitude to a terrible master.'",
+    "choices": [
+      {
+        "text": "'Do you know what entity this symbol might be connected to?'",
+        "next": "library_explains_drowner_connection_to_symbol"
+      },
+      {
+        "text": "'Thank you, Esther. This is a concerning discovery indeed.'",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "library_explains_drowner_connection_to_symbol": {
+    "id": "library_explains_drowner_connection_to_symbol",
+    "text": "'The books I've studied... they speak of 'The Drowner,' an ancient being of the abyss, a Betrayer God of sorts though perhaps not one of the original pantheon. Its followers, often driven mad by its promises or the crushing weight of its presence, use symbols like this – spirals, tentacles, dark waves – to mark their territory or as foci for their dreadful rituals. It's said the Drowner's influence is strongest near the sea, and it preys on those with greed or despair in their hearts, twisting them into its monstrous servants.'",
+    "choices": [
+      {
+        "text": "(Requires: Not yet found the book 'Tides of Dread') 'Could I see these books you speak of?'",
+        "next": "library_directs_to_drowner_lore",
+        "requires": "!Book Found: 'Tides of Dread, Whispers of the Deep'"
+      },
+      {
+        "text": "'This is vital information. Thank you, Esther, for your wisdom.'",
+        "next": "islebury_crossroads"
+      }
+    ]
+  },
+  "docks_observe_day_2_nothing_yet": {
+    "id": "docks_observe_day_2_nothing_yet",
+    "text": "You spend more time observing the general flow of the docks. The same rough-looking individuals are present, occasionally glancing towards the derelict western pier with an air of expectation. It's clear something happens there, but not in broad daylight with so many eyes around. You also notice a few heavily laden fishing boats returning with disappointingly small catches, their crews grumbling about 'cursed tides'.",
+    "choices": [
+      {
+        "text": "Decide to come back at night for a proper stakeout.",
+        "next": "docks_prepare_night_stakeout",
+        "requires": ""
+      },
+      {
+        "text": "This isn't yielding enough. Try another approach in town.",
+        "next": "islebury_crossroads",
+        "requires": ""
+      }
+    ]
+  }
 }
-
-
